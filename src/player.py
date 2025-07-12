@@ -11,10 +11,10 @@ class Jogador():
     
     def avancar_progresso(self) -> None:
         self.progresso += 1
-        return
+        return None
     
     def limpar_letras_reveladas(self) -> None:
         self.letras_reveladas.clear()
-        return
-    
+        return None
+
     

@@ -17,6 +17,7 @@ def main() -> None:
         Utils.limpar_tela()
         jogo.turno()
         jogo.trocar_turno()
+    return None
 
 if __name__ == "__main__":
     main()

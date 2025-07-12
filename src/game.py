@@ -16,12 +16,12 @@ class Jogo:
         lista_palavras: list[str] = Utils.capturar_palavras()
         # adiciona esse jogador temporário à lista de jogadores
         self.jogadores.append(Jogador(nome, lista_palavras))
-        return
+        return None
     
     def trocar_turno(self) -> None:
         # alterna o turno atual entre 0 e 1
         self.turno_atual = 1 - self.turno_atual
-        return
+        return None
     
     def turno(self) -> None:
         jogador_atual: Jogador = self.jogadores[self.turno_atual]
@@ -50,8 +50,8 @@ class Jogo:
             else:
                 print(f"Você ganhou a letra '{letra_revelada}' da palavra do adversário. Tente novamente na próxima vez!")
         system("pause")
-        return
-    
+        return None
+
     def verificar_vitoria(self) -> bool:
         for jogador in self.jogadores:
             if jogador.progresso == 4:
