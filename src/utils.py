@@ -37,20 +37,17 @@ class Utils:
         elif not nome.isalpha():
             print("O nome deve conter apenas letras. Tente novamente.")
             return False
-        elif " " in nome or "-" in nome:
-            print("O nome não pode conter espaços ou hífens. Tente novamente.")
-            return False
         return True
     
     @staticmethod
-    def capturar_nome() -> str:
-        nome: str = input("Digite o nome do jogador:\n> ").strip().lower()
-        while not Utils.validar_nome(nome):
-            nome = input("> ").strip().lower()
-        return nome
-    
+    def capturar_nome_validado() -> str:
+        while True:
+            nome: str = input("Digite o nome do jogador:\n> ").strip().lower()
+            if Utils.validar_nome(nome):
+                return nome
+
     @staticmethod
-    def verificar_palavras(palavras: list[str]) -> bool:
+    def validar_palavras(palavras: list[str]) -> bool:
         # verifica lista vazia
         if not palavras:
             print("ERRO: lista vazia, tente novamente.")
@@ -78,10 +75,8 @@ class Utils:
         return True
     
     @staticmethod
-    def capturar_palavras() -> list[str]:
-        palavras: list[str] = input("Digite as palavras do jogador (separadas por espaço):\n> ").strip().lower().split(" ")
-        while not Utils.verificar_palavras(palavras):
-            palavras = input("\n> ").strip().lower().split(" ")
-        return palavras
-
-    
+    def capturar_palavras_validadas() -> list[str]:
+        while True:
+            palavras: list[str] = input("Digite as palavras do jogador (separadas por espaço):\n> ").strip().lower().split(" ")
+            if Utils.validar_palavras(palavras):
+                return palavras
