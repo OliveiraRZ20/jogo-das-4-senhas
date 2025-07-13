@@ -11,9 +11,9 @@ class Jogo:
     
     def adicionar_jogador(self) -> None:
         # define e valida o nome do jogador
-        nome: str = Utils.capturar_nome()
+        nome: str = Utils.capturar_nome_validado()
         # define e valida a lista de palavras do jogador
-        lista_palavras: list[str] = Utils.capturar_palavras()
+        lista_palavras: list[str] = Utils.capturar_palavras_validadas()
         # adiciona esse jogador temporário à lista de jogadores
         self.jogadores.append(Jogador(nome, lista_palavras))
         return None
