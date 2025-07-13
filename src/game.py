@@ -55,9 +55,12 @@ class Jogo:
     def verificar_vitoria(self) -> bool:
         for jogador in self.jogadores:
             if jogador.progresso == 4:
+                Utils.limpar_tela()
                 print(f"\n{jogador.nome} venceu o jogo!")
+                print("\n\n| ==================== Jogadores ==================== |\n")
+                for player in self.jogadores:
+                    print(f"Jogador: {player.nome}")
+                    print(f"Palavras: {' --> '.join(player.palavras)}\n")
+                print("| =================================================== |") 
                 return True
         return False
-        
-        
-        
