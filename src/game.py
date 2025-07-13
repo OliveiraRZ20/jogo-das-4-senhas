@@ -35,7 +35,7 @@ class Jogo:
         if tentativa == palavra_alvo:
             print(f"\nParabéns, {jogador_atual.nome}! Você acertou a palavra!")
             jogador_atual.avancar_progresso()
-            jogador_adversario.limpar_letras_reveladas()
+            jogador_atual.limpar_letras_reveladas()
         # se não acertar a palavra
         else:
             print(f"\nQue pena, {jogador_atual.nome}! Você errou a palavra.")
@@ -45,7 +45,7 @@ class Jogo:
             if "".join(jogador_atual.letras_reveladas) == palavra_alvo:
                 print(f"Todas as letras foram reveladas. A palavra do adversário era: {palavra_alvo}, continuando para a próxima palavra.")
                 jogador_atual.avancar_progresso()
-                jogador_adversario.limpar_letras_reveladas()
+                jogador_atual.limpar_letras_reveladas()
             # se não tiver sido revelada completamente
             else:
                 print(f"Você ganhou a letra '{letra_revelada}' da palavra do adversário. Tente novamente na próxima vez!")
