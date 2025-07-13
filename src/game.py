@@ -30,6 +30,8 @@ class Jogo:
         palavra_alvo: str = jogador_adversario.palavras[jogador_atual.progresso]
         
         print(f"\nÉ a vez de {jogador_atual.nome}!")
+        if jogador_atual.progresso > 0:
+            print(f"Última palavra adivinhada: {jogador_adversario.palavras[jogador_atual.progresso - 1]}")
         tentativa: str = input(f"Tente adivinhar a palavra do adversário [Dicas: {" ".join(jogador_atual.letras_reveladas)}]:\n> ").strip().lower()
         # se acertar a palavra
         if tentativa == palavra_alvo:
