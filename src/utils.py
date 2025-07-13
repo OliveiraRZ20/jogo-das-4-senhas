@@ -34,7 +34,7 @@ class Utils:
         elif len(nome) > 20:
             print("O nome não pode ter mais de 20 caracteres. Tente novamente.")
             return False
-        elif not nome.isalpha():
+        elif nome not in "abcdefghijklmnopqrstuvwxyz ":
             print("O nome deve conter apenas letras. Tente novamente.")
             return False
         return True
