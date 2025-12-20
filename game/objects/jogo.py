@@ -51,5 +51,4 @@ class Jogo:
             if jogador.pontos == 4:
                 confirmar(f"Parabéns {jogador.nome}! Você venceu o jogo descobrindo todas as palavras do adversário!")
                 return True
-            else:
-                return False
+        return False
