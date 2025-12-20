@@ -183,3 +183,4 @@ cython_debug/
 # Jupter Notebooks
 .ipynb
 *.ipynb
+/.vscode
