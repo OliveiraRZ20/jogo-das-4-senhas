@@ -79,7 +79,7 @@ python3 --version
 
 ### 1️⃣ Clonar o Repositório
 ```bash
-git clone https://github.com/seu-usuario/jogo-das-4-senhas.git
+git clone https://github.com/oliveirarz20/jogo-das-4-senhas.git
 cd jogo-das-4-senhas
 ```
 
