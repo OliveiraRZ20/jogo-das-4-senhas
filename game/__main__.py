@@ -7,32 +7,32 @@ from game.utils.terminal import cls, pause, finalizar_programa
 
 
 def main():
-    MENU: Menu = Menu()
+    menu: Menu = Menu()
     cls()
-    MENU.exibir_regras()
+    menu.exibir_regras()
     pause()
     try:
         while True:
             cls()
-            MENU.exibir_menu()
-            opcao: str = MENU.ler_opcao()
+            menu.exibir_menu()
+            opcao: str = menu.ler_opcao()
             match opcao:
                 case '1':
-                    JOGO: Jogo = Jogo()
+                    jogo: Jogo = Jogo()
                     cls()
-                    JOGO.adicionar_jogador()
+                    jogo.adicionar_jogador()
                     cls()
-                    JOGO.adicionar_jogador()
-                    while not JOGO.verificar_vencedor():
+                    jogo.adicionar_jogador()
+                    while not jogo.verificar_vencedor():
                         cls()
-                        JOGO.turno()
+                        jogo.turno()
                         pause()
-                        JOGO.trocar_turno()
+                        jogo.trocar_turno()
                     pause()
                     continue
                 case '2':
                     cls()
-                    MENU.exibir_regras()
+                    menu.exibir_regras()
                     pause()
                 case '3':
                     finalizar_programa()
