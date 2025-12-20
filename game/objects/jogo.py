@@ -26,11 +26,11 @@ class Jogo:
         
         informar(f"É a vez de {jogador_atual.nome} jogar!")
         
-        if not jogador_atual.pontos == 0:
-            print(f"Última palavra descoberta: {jogador_adversario.palavras[jogador_atual.pontos - 1]}")
+        if jogador_atual.pontos > 0:
+            informar(f"Última palavra descoberta: {jogador_adversario.palavras[jogador_atual.pontos - 1]}")
         
         palavra_alvo: str = jogador_adversario.palavras[jogador_atual.pontos]
-        print(f"Palavra atual: {palavra_alvo[0:jogador_atual.qtd_letras_descobertas]}")
+        informar(f"Palavra atual: {palavra_alvo[0:jogador_atual.qtd_letras_descobertas]}")
         
         tentativa: str = ler_tentativa(f"{jogador_atual.nome}, digite sua tentativa para a palavra atual:\n> ")
         
@@ -39,12 +39,14 @@ class Jogo:
             jogador_atual.pontuar()
         else:
             informar(f"Que pena {jogador_atual.nome}, você não acertou a palavra.")
-            if jogador_atual.qtd_letras_descobertas < len(palavra_alvo):
-                jogador_atual.qtd_letras_descobertas += 1
-                print(f"Uma letra da palavra foi revelada para ajudar: {palavra_alvo[jogador_adversario.qtd_letras_descobertas - 1]}")
-            else:
-                informar("Todas as letras da palavra já foram reveladas, você avançou para a próxima palavra.")
+            if jogador_atual.qtd_letras_descobertas == len(palavra_alvo) - 1:
+                informar("Você não conseguiu descobrir a palavra, mas todas as letras já foram reveladas.")
+                informar(f"A palavra era: {palavra_alvo}")
+                informar("Você avançou para a próxima palavra.")
                 jogador_atual.pontuar()
+            else:
+                jogador_atual.qtd_letras_descobertas += 1
+                informar(f"Uma letra da palavra foi revelada para ajudar: {palavra_alvo[jogador_atual.qtd_letras_descobertas]}")
 
     def verificar_vencedor(self) -> bool:
         for jogador in self.jogadores:

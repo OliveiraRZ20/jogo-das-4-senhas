@@ -8,7 +8,7 @@ def ler_palavra(input_message: str, palavras_existentes: list[str]) -> str:
     """Função para leitura de uma palavra no momento de definição das palavras do jogador ao inciar o jogo"""
     while True:
         palavra: str = input(input_message).strip().upper()
-        if 5 > len(palavra) > 15:
+        if len(palavra) < 5 or len(palavra) > 15:
             alertar("Palavra inválida! A palavra deve ter entre 5 e 15 letras. Tente novamente.")
         elif palavra in palavras_existentes:
             alertar("Palavra inválida! Você já adicionou essa palavra antes. Tente novamente.")
