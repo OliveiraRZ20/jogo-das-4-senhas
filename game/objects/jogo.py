@@ -46,7 +46,7 @@ class Jogo:
                 jogador_atual.pontuar()
             else:
                 jogador_atual.qtd_letras_descobertas += 1
-                informar(f"Uma letra da palavra foi revelada para ajudar: {palavra_alvo[jogador_atual.qtd_letras_descobertas]}")
+                informar(f"Uma letra da palavra foi revelada para ajudar: {palavra_alvo[jogador_atual.qtd_letras_descobertas - 1]}")
 
     def verificar_vencedor(self) -> bool:
         for jogador in self.jogadores:
