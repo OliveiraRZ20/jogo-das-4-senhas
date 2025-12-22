@@ -23,13 +23,16 @@ def main():
                     jogo.adicionar_jogador()
                     cls()
                     jogo.adicionar_jogador()
-                    while not jogo.verificar_vencedor():
+                    while True:
                         cls()
                         jogo.turno()
-                        pause()
-                        jogo.trocar_turno()
-                    pause()
-                    continue
+                        match jogo.verificar_vencedor():
+                            case True:
+                                pause()
+                                break
+                            case False:
+                                pause()
+                                jogo.trocar_turno()
                 case '2':
                     cls()
                     menu.exibir_regras()

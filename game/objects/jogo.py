@@ -2,6 +2,7 @@
 from game.objects import Jogador
 from game.utils.logger import confirmar, informar
 from game.utils.user_input import ler_tentativa
+from game.utils.terminal import cls
 
 # imports externos
 
@@ -35,7 +36,7 @@ class Jogo:
         tentativa: str = ler_tentativa(f"{jogador_atual.nome}, digite sua tentativa para a palavra atual:\n> ")
         
         if tentativa == palavra_alvo:
-            informar(f"Parabéns {jogador_atual.nome}! Você descobriu a palavra '{palavra_alvo}'!")
+            confirmar(f"Parabéns {jogador_atual.nome}! Você descobriu a palavra '{palavra_alvo}'!")
             jogador_atual.pontuar()
         else:
             informar(f"Que pena {jogador_atual.nome}, você não acertou a palavra.")
@@ -47,10 +48,13 @@ class Jogo:
             else:
                 jogador_atual.qtd_letras_descobertas += 1
                 informar(f"Uma letra da palavra foi revelada para ajudar: {palavra_alvo[jogador_atual.qtd_letras_descobertas - 1]}")
+        
+        if jogador_atual.pontos == 4:
+            cls()
 
     def verificar_vencedor(self) -> bool:
         for jogador in self.jogadores:
             if jogador.pontos == 4:
-                confirmar(f"Parabéns {jogador.nome}! Você venceu o jogo descobrindo todas as palavras do adversário!")
+                confirmar(f"Parabéns {jogador.nome}! Você venceu o jogo!")
                 return True
         return False
