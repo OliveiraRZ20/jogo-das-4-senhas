@@ -2,7 +2,6 @@
 from game.objects import Jogador
 from game.utils.logger import confirmar, informar
 from game.utils.user_input import ler_tentativa
-from game.utils.terminal import cls
 
 # imports externos
 
@@ -11,10 +10,7 @@ class Jogo:
         self.jogadores: list[Jogador] = []
         self.turno_atual: int = 0  # Índice do jogador cujo turno é atual
     
-    def adicionar_jogador(self):
-        jogador: Jogador = Jogador()
-        jogador.definir_nome()
-        jogador.definir_palavras()
+    def adicionar_jogador(self, jogador: Jogador):
         self.jogadores.append(jogador)
     
     def trocar_turno(self):
@@ -46,15 +42,11 @@ class Jogo:
                 informar("Você avançou para a próxima palavra.")
                 jogador_atual.pontuar()
             else:
-                jogador_atual.qtd_letras_descobertas += 1
+                jogador_atual.ganhar_letra()
                 informar(f"Uma letra da palavra foi revelada para ajudar: {palavra_alvo[jogador_atual.qtd_letras_descobertas - 1]}")
-        
-        if jogador_atual.pontos == 4:
-            cls()
 
-    def verificar_vencedor(self) -> bool:
+    def verificar_vencedor(self) -> tuple[bool, str]:
         for jogador in self.jogadores:
             if jogador.pontos == 4:
-                confirmar(f"Parabéns {jogador.nome}! Você venceu o jogo!")
-                return True
-        return False
+                return [True, f"Parabéns {jogador.nome}! Você venceu o jogo!"]
+        return [False, ""]

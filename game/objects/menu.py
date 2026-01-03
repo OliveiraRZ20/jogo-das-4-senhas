@@ -1,5 +1,4 @@
 # imports internos
-from game.utils.user_input import ler_opcao
 
 
 # imports externos
@@ -39,9 +38,3 @@ class Menu:
     @staticmethod
     def exibir_menu():
         print(MENU)
-    
-    @staticmethod
-    def ler_opcao() -> str:
-        escolha: str = ler_opcao("Escolha uma opção (1-3):\n> ", ['1', '2', '3'])
-        return escolha
-

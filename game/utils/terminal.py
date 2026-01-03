@@ -1,5 +1,5 @@
 # imports internos
-from game.utils.logger import alertar, informar, confirmar
+from game.utils.logger import confirmar
 
 # imports externos
 from os import system, name
